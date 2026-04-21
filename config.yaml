@@ -1,0 +1,37 @@
+# Параметры модели
+model:
+  name: "facebook/detr-resnet-50"
+  num_classes: 2
+
+# Параметры данных
+data:
+  dataset_dir: "./dataset"
+  img_size: 800
+  batch_size: 2
+  num_workers: 0
+  seed: 42
+
+# Параметры обучения
+training:
+  num_epochs: 75
+  learning_rate: 1e-4
+  weight_decay: 1e-4
+  backbone_lr: 1e-5
+  grad_clip: 0.1
+  scheduler_step: 40
+  scheduler_gamma: 0.1
+
+# Параметры инференса
+inference:
+  confidence_threshold: 0.5
+  iou_threshold: 0.5
+
+# Пути
+paths:
+  checkpoints_dir: "./checkpoints"
+  outputs_dir: "./outputs"
+  model_path: "./checkpoints/best_model.pth"
+
+# Логирование
+logging:
+  save_interval: 5
